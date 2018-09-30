@@ -1,0 +1,4 @@
+["etre" "suis" "es" "est" "sommes" "etes" "sont"]
+["avoir" "ai" "as" "a" "avons" "avez" "ont"]
+["aller" "vais" "vas" "va" "allons" "allez" "vont"]
+["prendre" "prends" "prends" "prend" "prenons" "prenez" "prennent"]
