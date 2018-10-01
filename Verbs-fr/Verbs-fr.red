@@ -12,7 +12,8 @@ cur_person: to-integer random_new_pers
 
 view layout [ 
     title "Verbs-fr"
-    tab-panel mint 460x260 [
+    on-close [write %words.txt a/text]
+    tp: tab-panel mint 460x260 [
         "Learn" [
             text "Infinitif:" font-size 30
             question: text 440x100 font-color coffee font-size 30 bold data (words-as-data/(cur_verb)/1) no-border
@@ -25,13 +26,18 @@ view layout [
                 question/text: copy words-as-data/(cur_verb)/1
                 pers/text: copy person/(cur_person)
                 answer/text: copy ""
+                answer/color: none
                 ][
                 answer/data: words-as-data/(cur_verb)/((cur_person) + 1)
+                answer/color: red
                 ]
             ]
         ]
         "Word list" [
-            a: area 440x215 words-as-string
+            a: area 440x215 words-as-string on-change ['done]
+            ]
+        ] on-change [if event/face = tp [
+            write %words.txt a/text
             ]
         ]
     ]
